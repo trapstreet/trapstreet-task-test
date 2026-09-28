@@ -1,0 +1,5 @@
+name: Main case
+result_type: "score"
+timeout_seconds: 60
+judge:
+  requires: [input, output]

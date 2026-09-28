@@ -1,0 +1,9 @@
+{
+  "name": "trapstreet-task-test",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@trapstreet/sdk": "0.1.0"
+  }
+}
