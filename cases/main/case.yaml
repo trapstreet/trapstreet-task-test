@@ -1,5 +1,6 @@
-name: Main case
-result_type: "score"
+name: One file
+result_type: score
 timeout_seconds: 60
 judge:
-  requires: [input, output]
+  requires: [input, output, usage]
+  timeout_seconds: 30

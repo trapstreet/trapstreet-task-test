@@ -1,6 +1,7 @@
-schema_version: "2026.09.1"
-name: Trapstreet arithmetic smoke test
-result_type: "score"
+schema_version: "2026.09.2"
+name: Coordinator verification
+result_type: score
 cases: [main]
 reporter:
-  requires: []
+  requires: [usage]
+  timeout_seconds: 30

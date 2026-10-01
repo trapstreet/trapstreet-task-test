@@ -1,17 +1,15 @@
-import {defineJudge, type JudgeResult} from '@trapstreet/sdk';
+import {defineJudge, readUsageMetric, type JudgeResult} from '@trapstreet/sdk';
 import {readText} from '@trapstreet/sdk/files';
 
-export default defineJudge(async function judgeCase({input, output}): Promise<JudgeResult> {
+export default defineJudge(async function judgeCase({input, output, usage}): Promise<JudgeResult> {
   if (input.status !== 'available' || output.status !== 'available') {
-    throw new Error('Required file evidence is unavailable');
+    throw Error('missing evidence');
   }
-
-  const expected = (await readText(input.data.directory, 'expected.txt')).trim();
-  const actual = (await readText(output.data.directory, 'answer.txt')).trim();
-
+  const expected = await readText(input.data.directory, 'expected.txt');
+  const actual = await readText(output.data.directory, 'answer.txt');
   return {
     type: 'score',
     value: actual === expected ? 100 : 0,
-    extra_data: {actual}
+    extra_data: {cost: readUsageMetric(usage, 'cost_usd')}
   };
 });

@@ -1,9 +1,9 @@
 {
-  "name": "trapstreet-task-test",
+  "name": "trapstreet-coordinator-fixture",
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "dependencies": {
-    "@trapstreet/sdk": "0.1.0"
+  "devDependencies": {
+    "@trapstreet/sdk": "0.2.0"
   }
 }
